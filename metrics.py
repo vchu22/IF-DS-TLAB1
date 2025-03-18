@@ -1,3 +1,5 @@
+import math
+
 def average(data: list) -> float:
     """
     Calculate average value of the list.
@@ -38,15 +40,31 @@ def maximum(data: list) -> float:
 
 def variance(data: list) -> float:
     """
-    INSERT DOCSTRING HERE
-    (calculate population variance)
+    Calculate the population variance given a list of heart rate data.
+
+    Args:
+        data (list[int]): list of integers representing heart rate samples
+    Returns:
+        float: a floating point value representing the population variance of the sample
     """
-    pass
+    if len(data) == 0:
+        return 0
+    mean = average(data)
+    sum_deviations = 0
+    for _ in data:
+        sum_deviations += abs(_ - mean) ** 2
+    return sum_deviations / len(data)
 
 
 def standard_deviation(data: list) -> float:
     """
-    INSERT DOCSTRING HERE
-    (calculate population standard deviation)
+    Calculate the standard deviation given a list of heart rate data.
+
+    Args:
+        data (list[int]): list of integers representing heart rate samples
+    Returns:
+        float: a floating point value representing the population variance of the sample
     """
-    pass
+    if len(data) == 0:
+        return []
+    return math.sqrt(variance(data))
