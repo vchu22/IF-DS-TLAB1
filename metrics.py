@@ -17,7 +17,7 @@ def average(data: list) -> float:
     if len(data) == 0:
         return []
     average = sum / len(data)
-    return average
+    return round(average, 2)
 
 
 def maximum(data: list) -> float:
@@ -35,7 +35,7 @@ def maximum(data: list) -> float:
     for _ in data[1:]:
         if max_num < _:
             max_num = _
-    return max_num
+    return round(max_num, 2)
 
 
 def variance(data: list) -> float:
@@ -53,7 +53,7 @@ def variance(data: list) -> float:
     sum_deviations = 0
     for _ in data:
         sum_deviations += abs(_ - mean) ** 2
-    return sum_deviations / len(data)
+    return round(sum_deviations / len(data), 2)
 
 
 def standard_deviation(data: list) -> float:
@@ -67,4 +67,4 @@ def standard_deviation(data: list) -> float:
     """
     if len(data) == 0:
         return []
-    return math.sqrt(variance(data))
+    return round(math.sqrt(variance(data)), 2)
